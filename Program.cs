@@ -13,6 +13,9 @@ namespace WebAPI
     {
         public static void Main(string[] args)
         {
+            
+            Console.WriteLine("-------- Web Api Starting ---------");
+            
             CreateHostBuilder(args).Build().Run();
         }
 

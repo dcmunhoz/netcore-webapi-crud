@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using WebAPI.Data;
 
 namespace WebAPI
 {
@@ -27,11 +29,18 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
+            String connectinString = Configuration["Connection:mysql"];
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
+
+            services.AddDbContext<DataContext>(option => option.UseMySql(
+                connectinString, // Connection String
+                new MySqlServerVersion(new Version(8, 0, 22))
+            ));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,8 +53,7 @@ namespace WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
 
-            app.UseHttpsRedirection();
-
+            //app.UseHttpsRedirection();
             app.UseRouting();
 
             app.UseAuthorization();
