@@ -8,13 +8,14 @@ namespace WebAPI.Models
     {
         
         [Key]
-        private int Id { get; set; }
-        private string Username { get; set; }
-        private string Full_name { get; set; }
-        private string Avatar { get; set; }
-        private DateTime Created_At { get; set; }     
-        private DateTime Updated_At { get; set; }     
-        private List<Repository> Repository { get; set; }  
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Full_name { get; set; }
+        public string Email { get; set; }
+        public string Avatar { get; set; }
+        public DateTime Created_At { get; set; }     
+        public DateTime Updated_At { get; set; }     
+        public List<Repository> Repository { get; set; }  
 
     }
 }

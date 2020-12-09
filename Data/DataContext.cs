@@ -8,8 +8,8 @@ namespace WebAPI.Data
 
         public DataContext (DbContextOptions<DataContext> option) : base(option) { }        
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Repository> Repositories { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Repository> repositories { get; set; }
         
     }
 }
