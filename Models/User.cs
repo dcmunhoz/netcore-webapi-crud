@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System;
@@ -11,13 +12,16 @@ namespace WebAPI.Models
         public int Id { get; set; }
         public string Username { get; set; }
         public string Full_name { get; set; }
-        public string Email { get; set; }
         public string Avatar { get; set; }
-        public DateTime Created_At { get; set; }     
-        public DateTime Updated_At { get; set; }     
+        public DateTime Created_At { get; set; } = DateTime.Now; 
+        public DateTime Updated_At { get; set; } = DateTime.Now;   
         public List<Repository> Repository { get; set; }  
 
+
     }
+
+
+
 }
 
 // id int not null auto_increment,

@@ -41,6 +41,16 @@ namespace WebAPI
                 connectinString, // Connection String
                 new MySqlServerVersion(new Version(8, 0, 22))
             ));
+            
+            services.AddHttpClient("GithubAPI", c => {
+                // Github api
+                c.BaseAddress = new Uri("https://api.github.com/");
+                c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
+                c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+            });
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
